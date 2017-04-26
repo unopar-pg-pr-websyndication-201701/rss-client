@@ -13,7 +13,7 @@ Repositório para o projeto rss-client
 	05/05/2017 prazo limite de entrega
 
 # Goals
-	Cadastro de Notícias
+- Cadastro de Notícias
 		Padrão Noticias
 		tempo noticia ar
 		campos do cadastro:
