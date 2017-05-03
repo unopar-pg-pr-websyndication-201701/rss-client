@@ -18,8 +18,8 @@ $rss = new SimpleXmlElement($feed);
 foreach($rss->channel->item as $entrada) {
 	// echo '<pre>';
 	// var_dump($entrada);
-	$formata = '12-31-2012';
-	$data = new DataTime($formata);
+	//$formata = '12-31-2012';
+	//$data = new DataTime($formata);
 
 	if(strtotime(date("m/d/Y",strtotime($entrada->pubDate)))>= strtotime(date("m/d/Y",strtotime($data)))){
 	echo $entrada->title.'<br>';

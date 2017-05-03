@@ -81,6 +81,7 @@
               <div class="col-md-12 col-md-offset-3">
                 <div class="col-md-3">
                   <label>Periodo</label>
+                  <date-util format="dd/MM/yyyy"></date-util>
                   <input type="date" id="data" class="form-control"></br>
                   <button type="button"  class="btn btn-primary" onclick="teste();">Enviar</button>
                 </div>
