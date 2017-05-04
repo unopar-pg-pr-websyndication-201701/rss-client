@@ -22,10 +22,11 @@ foreach($rss->channel->item as $entrada) {
 	//$data = new DataTime($formata);
 
 	if(strtotime(date("m/d/Y",strtotime($entrada->pubDate)))>= strtotime(date("m/d/Y",strtotime($data)))){
-	echo $entrada->title.'<br>';
-	echo $entrada->link.'<br>';
-	echo $entrada->description.'<br>';
-	echo $entrada->pubDate.'<br><br><br>';
-	//echo $data.'<br>';
+		echo '<h3>'.$entrada->title.'</h3>';
+		echo '<p>'.$entrada->pubDate.'</p>';
+		echo '<a href="'.$entrada->link.'">'.$entrada->link.'</a>';
+		echo '<p>'.$entrada->description.'</p>';
+		echo '<hr>';
+		//echo $data.'<br>';
 	}
 }

@@ -46,12 +46,24 @@
 <!DOCTYPE html>
 <html>
   <style>
+    .search{
+      clear: both;
+    }
     #livesearch{
-      text-align: center;
+      
     }
     img{
       width: 150px;
       height: 150px;
+    }
+    .data{
+      width: 200px !important;
+      margin:0 0 20px 0;
+    }
+    hr{
+      margin-top: 10px !important;
+      margin-bottom: 60px !important;
+      border-top: 5px solid #eee !important;
     }
   </style>
   <head>
@@ -68,32 +80,34 @@
     </head>
   </head>
   <body>
-    <div class="container">
-      <div class="col-md-12">
+    <section id="busca">
+      <div class="container">
         <form class="form-group">
-            <div class="marginTopo">
-              <label class="col-md-12 col-md-offset-3" for="url">URL da Noticia</label>
-              <div class="col-md-12 col-md-offset-3">
-                <div class="col-md-5">
-                  <input type="text" class="form-control" size="30" id="url"></br>
-                </div>
-              </div>
-              <div class="col-md-12 col-md-offset-3">
-                <div class="col-md-3">
-                  <label>Periodo</label>
-                  <input type="date" id="data" class="form-control"></br>
-                  <button type="button"  class="btn btn-primary" onclick="teste();">Enviar</button>
-                </div>
-              </div></br>
+          <div class="marginTopo">
+            <div class="col-md-6 col-md-offset-3">
+              <h3>URL da notícia</h3>
+              <input type="text" class="form-control" size="30" id="url"></br>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+              <h3>Periodo</h3>
+              <input type="date" id="data" class="form-control data">
+              <button type="button"  class="btn btn-primary" onclick="busca();">Buscar</button>
+            </div>
         </form>
-        <div id="livesearch">
+        <div class="search">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <div id="livesearch">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </body>
 </html>
 <script type="text/javascript">
-function teste(){
+function busca(){
 
   var data  = $("#data").val();
   var url = $("#url").val();
