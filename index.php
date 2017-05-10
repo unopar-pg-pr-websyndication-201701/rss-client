@@ -14,6 +14,9 @@
 
 
   function showResult(str, datapesquisa) {
+    $('body').loading({
+      message:"Carregando Conteudo..."
+    });
     /*if (str.length==0) {
       document.getElementById("livesearch").innerHTML="";
       document.getElementById("livesearch").style.border="0px";
@@ -33,9 +36,16 @@
 
     xmlhttp.onreadystatechange=function() {
       if (this.readyState==4 && this.status==200) {
-
+        $('body').loading('stop');
         document.getElementById("livesearch").innerHTML=this.responseText;
+
         //document.getElementById("date").innerHTML=this.value;
+      }else if(this.readyState==4 && this.status!=200){
+        $('body').loading('stop');
+        //window.onload = function(){
+          //$("#modal-mensagem").modal();
+        //}
+      alert('Ocorreu um erro no link do RSS !!!');
       }
       
     }
@@ -65,6 +75,9 @@
       margin-bottom: 60px !important;
       border-top: 5px solid #eee !important;
     }
+    body{
+      background-color: white;
+    }
   </style>
   <head>
     <head>
@@ -75,7 +88,9 @@
       <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
       <script src="bootstrap/js/bootstrap.min.js"></script>
       <script src="jquery-3.2.1.min.js"></script>
-      <script src="masked.js"></script>
+      <script src="jquery.loading.js"></script>
+      <link rel="stylesheet" type="text/css" href="jquery.loading.css" />
+      <script src="js/modernizr.custom.js"></script>
       <title>RSS</title>
     </head>
   </head>
@@ -91,7 +106,7 @@
             <div class="col-md-6 col-md-offset-3">
               <h3>Periodo</h3>
               <input type="date" id="data" class="form-control data">
-              <button type="button"  class="btn btn-primary" onclick="busca();">Buscar</button>
+              <button type="button" class="btn btn-primary" onclick="busca();">Buscar</button>
             </div>
         </form>
         <div class="search">
@@ -102,7 +117,6 @@
             </div>
           </div>
         </div>
-      </div>
     </section>
   </body>
 </html>
