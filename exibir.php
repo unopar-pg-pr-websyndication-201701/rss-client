@@ -5,7 +5,7 @@ ini_set(“display_errors”, 0 );
 if(isset($_GET["data"])){
 	$data = $_GET["data"];
 }else{
-	$data = "02/05/2017";
+	$data = "02/05/2017";//passar a data atual
 }
 
 if(isset($_GET["q"]) ) {

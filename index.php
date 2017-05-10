@@ -1,19 +1,80 @@
-<?php 
-  $url_atual = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-?>
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>RSS</title>
 
-<style type="text/css">
-  img {
-    max-width: 100%;
-  }
-  .marginTopo{
-    margin-top: 80px;
-  }
-</style>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="jquery.loading.css" />
+  <style>
+    .search{
+      clear: both;
+    }
+    .marginTopo{
+        margin-top: 80px;
+      }    
+    #livesearch{
+      
+    }
+    img{
+      width: 150px;
+      height: 150px;
+      max-width: 100%;
+    }
+    .data{
+      width: 200px !important;
+      margin:0 0 20px 0;
+    }
+    hr{
+      margin-top: 10px !important;
+      margin-bottom: 60px !important;
+      border-top: 5px solid #eee !important;
+    }
+    body{
+      background-color: white;
+    }
+  </style>    </head>
+  <body>
+    <section id="busca">
+      <div class="container">
+        <form class="form-group">
+          <div class="marginTopo">
+            <div class="col-md-6 col-md-offset-3">
+              <h3>URL da notícia</h3>
+              <input type="text" class="form-control" size="30" id="url"></br>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+              <h3>Periodo</h3>
+              <input type="date" id="data" class="form-control data">
+              <button type="button" class="btn btn-primary" onclick="busca();">Buscar</button>
+            </div>
+        </form>
+        <div class="search">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <div id="livesearch">
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </body>
+
+
+      <script src="jquery-3.2.1.min.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+      <script src="jquery.loading.js"></script>
+      <script src="js/modernizr.custom.js"></script>
+  
 <script type="text/javascript">
+function busca(){
 
+  var data  = document.getElementById("data").value;
+  var url = document.getElementById("url").value;
+  showResult(url, data);
+};
 
-  function showResult(str, datapesquisa) {
+ function showResult(str, datapesquisa) {
     $('body').loading({
       message:"Carregando Conteudo..."
     });
@@ -50,81 +111,6 @@
       
     }
   }
-
-</script>
-
-<!DOCTYPE html>
-<html>
-  <style>
-    .search{
-      clear: both;
-    }
-    #livesearch{
-      
-    }
-    img{
-      width: 150px;
-      height: 150px;
-    }
-    .data{
-      width: 200px !important;
-      margin:0 0 20px 0;
-    }
-    hr{
-      margin-top: 10px !important;
-      margin-bottom: 60px !important;
-      border-top: 5px solid #eee !important;
-    }
-    body{
-      background-color: white;
-    }
-  </style>
-  <head>
-    <head>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-      <script src="bootstrap/js/bootstrap.min.js"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-      <script src="bootstrap/js/bootstrap.min.js"></script>
-      <script src="jquery-3.2.1.min.js"></script>
-      <script src="jquery.loading.js"></script>
-      <link rel="stylesheet" type="text/css" href="jquery.loading.css" />
-      <script src="js/modernizr.custom.js"></script>
-      <title>RSS</title>
-    </head>
-  </head>
-  <body>
-    <section id="busca">
-      <div class="container">
-        <form class="form-group">
-          <div class="marginTopo">
-            <div class="col-md-6 col-md-offset-3">
-              <h3>URL da notícia</h3>
-              <input type="text" class="form-control" size="30" id="url"></br>
-            </div>
-            <div class="col-md-6 col-md-offset-3">
-              <h3>Periodo</h3>
-              <input type="date" id="data" class="form-control data">
-              <button type="button" class="btn btn-primary" onclick="busca();">Buscar</button>
-            </div>
-        </form>
-        <div class="search">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <div id="livesearch">
-              </div>
-            </div>
-          </div>
-        </div>
-    </section>
-  </body>
+</script>  
 </html>
-<script type="text/javascript">
-function busca(){
 
-  var data  = $("#data").val();
-  var url = $("#url").val();
-  showResult(url, data);
-};
-</script>
